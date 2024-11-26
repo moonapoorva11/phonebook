@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhoneBook</title>
+    <link href="style.css" rel="stylesheet">
+   
+</head>
+<body>
+    <h1>Phone Book</h1>
+    <div class="phonebook-container">
+        <div class="search-section">
+            <input type="text" id="search" placeholder="Search Contact...">
+            <button type="button" onclick="search()">Search</button>
+        </div>
+        <p id="result"></p>
+    </div>
+    
+    <script>
+        const contacts = {
+            Apoorva: 8669147685,
+            Alpesh: 7865448606,
+            Janvi: 9470034669,
+            Aastha: 9067421250,
+            Sanskruti: 9774527706,
+            Dikshant: 9478585589,
+            Deepali: 6849335729,
+        };
+
+        function search() {
+            const searchInput = document.getElementById("search").value.trim(); 
+            // trim() is used to remove white space from the start and from the end of the string
+            const result = document.getElementById("result");
+            
+            result.style.display = "none";
+
+            for (let name in contacts) {
+                if (name.toLowerCase() === searchInput.toLowerCase()) {
+                    result.innerHTML = `<strong>${name}</strong>&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;<strong>${contacts[name]}</strong>`;
+                    result.style.display = "block"; 
+                    return;
+                }
+            }
+
+            result.innerHTML = `Contact not found`;
+            result.style.display = "block"; 
+        }
+    </script>
+</body>
+</html>
