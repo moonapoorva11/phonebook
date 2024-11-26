@@ -33,19 +33,24 @@
             // trim() is used to remove white space from the start and from the end of the string
             const result = document.getElementById("result");
             
+
+            // pehle result ka display none rahega vo dikhai nai dega
             result.style.display = "none";
 
             for (let name in contacts) {
                 if (name.toLowerCase() === searchInput.toLowerCase()) {
-                    result.innerHTML = `<strong>${name}</strong>&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;<strong>${contacts[name]}</strong>`;
+                    result.innerHTML = `${name}&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;${contacts[name]}`;
                     result.style.display = "block"; 
                     return;
                 }
             }
 
             result.innerHTML = `Contact not found`;
+           
             result.style.display = "block"; 
-        }
+        } 
+
+        
     </script>
 </body>
 </html>
